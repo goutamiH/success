@@ -1,0 +1,41 @@
+{% block content  %}
+{% include 'navbar.html' %}
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .header
+    {
+        font-size:160%;
+    }
+    .wpcf7-form-control wpcf7-submit has-spinner
+    {
+        size:large;
+    }
+</style>
+<div>
+    <br><br>
+    <center>
+    <h1 class="header">SHARE YOUR THOUGTHS or STORY...</h1><br><br>
+   
+   <fieldset>
+   <br>
+   <form action="{% url 'home' %}" method="POST">
+        
+        {% csrf_token %}
+        <p><label> Your Name:
+        <span class="wpcf7-form-control-wrap" name="your-name" required><input size="110" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" value="" type="text" name="your-name" /></span> </label>
+        </p><br><br>
+        <p><label>Story Title:
+        <span class="wpcf7-form-control-wrap" name="your-email" required><input size="110" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" value="" type="email" name="your-email" /></span> </label>
+        </p><br><br>
+        <p><label> Story:
+        <span class="wpcf7-form-control-wrap" name="your-subject"><input size="110" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="your-subject" /></span> </label>
+        </p><br><br>
+        <p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit"  value="Send" />
+        </p><p style="display: none !important;" class="akismet-fields-container" data-prefix="_wpcf7_ak_"><label>&#916;<textarea name="_wpcf7_ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="_wpcf7_ak_js" value="18"/><script>document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p><div class="wpcf7-response-output" aria-hidden="true"></div>
+        </form>
+    </center>
+</div>
+{% endblock content  %}
